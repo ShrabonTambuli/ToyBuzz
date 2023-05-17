@@ -19,7 +19,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     <img className="w-12 rounded-full border-2 border-green-500" src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="" />
-                    <Link to='' className="btn btn-outline btn-success">Login</Link>
+                    <Link to='' className="btn btn-outline btn-warning">Login</Link>
                 </div>
             </div>
         </div>
