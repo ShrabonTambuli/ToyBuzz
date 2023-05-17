@@ -1,3 +1,4 @@
+import Gallery from "../Gallery-Section/Gallery";
 
 
 const Home = () => {
@@ -12,6 +13,10 @@ const Home = () => {
                         <button className="btn btn-outline btn-warning">Try Now!</button>
                     </div>
                 </div>
+            </div>
+            <div className="mt-14 text-center font-serif">
+                <h1 className="text-4xl underline">Photo - Gallery</h1>
+                <Gallery/>
             </div>
         </div>
     );
