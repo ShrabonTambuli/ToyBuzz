@@ -15,7 +15,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="mt-14 text-center font-serif">
-                <h1 className="text-4xl underline">Photo - Gallery</h1>
+                <h1 className="text-4xl underline font-semibold">Photo - Gallery</h1>
                 <Gallery/>
             </div>
         </div>
