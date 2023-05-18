@@ -1,3 +1,4 @@
+import Feature from "../Feature/Feature";
 import Gallery from "../Gallery-Section/Gallery";
 
 
@@ -16,7 +17,12 @@ const Home = () => {
             </div>
             <div className="mt-14 text-center font-serif">
                 <h1 className="text-4xl underline font-semibold">Photo - Gallery</h1>
-                <Gallery/>
+                <Gallery />
+            </div>
+            <div>
+                <h1 className="font-serif font-semibold text-4xl text-center mt-14">Toys of Custom
+                    Shopping Features</h1>
+                <Feature />
             </div>
         </div>
     );
