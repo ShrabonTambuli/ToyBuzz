@@ -9,7 +9,7 @@ const Error = () => {
             </div>
             <div className="font-serif text-4xl">
                 <h1>Page is updating....</h1>
-            <Link to='/' className="mt-4 btn btn-outline btn-success">Go To Home</Link>
+            <Link to='/' className="mt-4 btn btn-outline btn-warning">Go To Home</Link>
             </div>
         </div>
     );
