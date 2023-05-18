@@ -1,5 +1,6 @@
 import Feature from "../Feature/Feature";
 import Gallery from "../Gallery-Section/Gallery";
+import Subscrib from "../Subscrib/Subscrib";
 
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
                 <h1 className="font-serif font-semibold text-4xl text-center mt-14">Toys of Custom
                     Shopping Features</h1>
                 <Feature />
+            </div>
+            <div className="text-center mt-14 bg py-14">
+                <Subscrib/>
             </div>
         </div>
     );
