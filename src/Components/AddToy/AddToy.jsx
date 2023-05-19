@@ -1,17 +1,63 @@
+import { Form } from "react-router-dom";
 
 const AddToy = () => {
+    
+
+    const handleAddToy = event => {
+        event.preventDefault();
+        const form = event.target;
+        const toyName = form.toyName.value;
+        const picture = form.picture.value;
+        const sellerName = form.sellerName.value;
+        const sellerEmail = form.sellerEmail.value;
+        const subCategory = form.subCategory.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const availableQuantity = form.availableQuantity.value;
+        const details = form.details.value;
+
+        const added = {
+            toy_name : toyName,
+            picture: picture,
+            price: price,
+            rating: rating,
+            available_quantity: availableQuantity,
+            seller_name: sellerName,
+            seller_email: sellerEmail,
+            details: details,
+            sub_category: subCategory
+
+        }
+        console.log(added)
+
+        fetch('http://localhost:5000/product',{
+        method: 'POST',
+        headers: {
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(added)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data);
+    })
+    }
+
+    
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content">
-                    <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100 pb-6">
+                    <Form onSubmit={handleAddToy} className="card flex-shrink-0 w-full shadow-2xl bg-base-100 pb-6">
                         <div className="card-body grid grid-cols-1 lg:grid-cols-2">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Toy Name</span>
                                 </label>
                                 <input type="text" placeholder="Toy name"
-                                    name="toy-name" className="input input-bordered pe-64" />
+                                    name="toyName" className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -26,14 +72,14 @@ const AddToy = () => {
                                     <span className="label-text">Seller Name</span>
                                 </label>
                                 <input type="text" placeholder="Seller name"
-                                    name="seller_name" className="input input-bordered pe-64" />
+                                    name="sellerName" className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Seller Email</span>
                                 </label>
                                 <input type="text" placeholder="Seller-email"
-                                    name="seller_email"
+                                    name="sellerEmail"
                                     className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">
@@ -41,7 +87,7 @@ const AddToy = () => {
                                     <span className="label-text">Sub-Category</span>
                                 </label>
                                 <input type="text" placeholder="Sub-category"
-                                    name="sub_category"
+                                    name="subCategory"
                                     className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">
@@ -65,7 +111,7 @@ const AddToy = () => {
                                     <span className="label-text">Available Quantity</span>
                                 </label>
                                 <input type="text" placeholder="Available-quantity"
-                                    name="available_quantity"
+                                    name="availableQuantity"
                                     className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">
@@ -80,7 +126,7 @@ const AddToy = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-outline btn-warning mx-4">Add A Toy</button>
                         </div>
-                    </div>
+                    </Form>
                 </div>
             </div>
         </div>
