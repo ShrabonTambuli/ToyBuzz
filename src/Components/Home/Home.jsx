@@ -1,9 +1,13 @@
+
+
+import Category from "../Category/Category";
 import Feature from "../Feature/Feature";
 import Gallery from "../Gallery-Section/Gallery";
 import Subscrib from "../Subscrib/Subscrib";
 
 
 const Home = () => {
+
     return (
         <div>
             <div className="hero min-h-screen mt-10 font-serif" style={{ backgroundImage: `url("/images/banner.webp")` }}>
@@ -19,6 +23,9 @@ const Home = () => {
             <div className="mt-14 text-center font-serif">
                 <h1 className="text-4xl underline font-semibold">Photo - Gallery</h1>
                 <Gallery />
+            </div>
+            <div className="mt-16">
+                <Category/>
             </div>
             <div>
                 <h1 className="font-serif font-semibold text-4xl text-center mt-14">Toys of Custom

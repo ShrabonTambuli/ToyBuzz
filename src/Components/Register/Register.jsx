@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -20,12 +21,22 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password)
 
+        // createUser(email, password)
+        // .then(result =>{
+        //     const user = result.user;
+        //     console.log(user)
+        // })
+        // .catch(err =>console.log(err));
         createUser(email, password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user)
+        .then ((result)=>{
+            updateProfile(result.user, {
+                displayName: name, photoURL: photo
+            })
         })
-        .catch(err =>console.log(err));
+        .catch((error)=>{
+            return(error);
+
+        })
     }
 
     return (
