@@ -14,6 +14,8 @@ import Register from './Components/Register/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import AddToy from './Components/AddToy/AddToy.jsx';
 import AllToys from './Components/AllToys/AllToys.jsx';
+import MyToys from './Components/MyToys/MyToys.jsx';
+import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        // loader: () => fetch('http://localhost:5000/product')
+        // loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
       },
       {
         path: "/blogs",
@@ -46,7 +48,15 @@ const router = createBrowserRouter([
       {
         path: "/all-toys",
         element: <AllToys/>,
-        // loader: () => fetch('http://localhost:5000/product')
+      },
+      {
+        path: "/my-toys",
+        element: <MyToys/>,
+      },
+      {
+        path: "/view-details/:_id",
+        element: <ViewDetails/>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
       }
     ]
   },

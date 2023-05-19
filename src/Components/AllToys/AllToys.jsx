@@ -26,6 +26,7 @@ const AllToys = () => {
                         {/* head */}
                         <thead>
                             <tr>
+                                <th>Toy Picture</th>
                                 <th>Seller Name</th>
                                 <th>Toy Name</th>
                                 <th>Sub-category</th>
@@ -45,7 +46,7 @@ const AllToys = () => {
 
             </div>
             <div className="text-center mt-10">
-                <button onClick={()=>seeAllToys()} className="btn btn-outline btn-warning px-20">See All Toys</button>
+                <button onClick={()=>seeAllToys()} className="btn btn-warning px-20">See All Toys</button>
             </div>
         </div>
     );

@@ -110,7 +110,7 @@ const AddToy = () => {
                                 <label className="label">
                                     <span className="label-text">Available Quantity</span>
                                 </label>
-                                <input type="text" placeholder="Available-quantity"
+                                <input type="number" placeholder="Available-quantity"
                                     name="availableQuantity"
                                     className="input input-bordered pe-64" />
                             </div>
@@ -124,7 +124,7 @@ const AddToy = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-outline btn-warning mx-4">Add A Toy</button>
+                            <button className="btn btn-warning mx-4">Add A Toy</button>
                         </div>
                     </Form>
                 </div>
