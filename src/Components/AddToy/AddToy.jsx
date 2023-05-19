@@ -23,7 +23,7 @@ const AddToy = () => {
             rating: rating,
             available_quantity: availableQuantity,
             seller_name: sellerName,
-            seller_email: sellerEmail,
+            email: sellerEmail,
             details: details,
             sub_category: subCategory
 

@@ -15,7 +15,7 @@ const Category = () => {
     }, [])
 
     return (
-        <div className="text-center bg py-6">
+        <div className="text-center py-6">
             <Tabs>
                 <TabList>
                     <Tab className='btn btn-outline btn-warning mx-4'>Science Kit</Tab>
