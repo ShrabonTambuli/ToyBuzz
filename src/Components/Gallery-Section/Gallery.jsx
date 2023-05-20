@@ -9,7 +9,7 @@ const Gallery = () => {
       }, []);
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 mt-14 mx-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 mt-14 mx-16 container">
             <div className="card w-80 bg-base-100 shadow-xl image-full h-60 mx-auto" data-aos="fade-right">
                 <figure><img src="/images/G-1.jpg" alt="Shoes" /></figure>
                 <div className="card-body">

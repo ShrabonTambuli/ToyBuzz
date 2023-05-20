@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import CategoryProduct from "../CategoryProduct/CategoryProduct";
 
@@ -18,9 +18,9 @@ const Category = () => {
         <div className="text-center py-6">
             <Tabs>
                 <TabList>
-                    <Tab className='btn btn-outline btn-warning mx-4'>Science Kit</Tab>
-                    <Tab className='btn btn-outline btn-warning mx-4'>Medical Kit</Tab>
-                    <Tab className='btn btn-outline btn-warning mx-4'>Math Kit</Tab>
+                    <button className='btn btn-warning mx-4'>Science Kit</button>
+                    <button className='btn btn-warning mx-4'>Medical Kit</button>
+                    <button className='btn btn-warning mx-4'>Math Kit</button>
                 </TabList>
 
                 <TabPanel>
