@@ -16,8 +16,7 @@ const MyToys = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto container mx-auto">
-                <h1>My Toy : {toys.length}</h1>
+            <div className="overflow-x-auto container mx-auto mt-10">
                 <table className="table w-full">
                     {/* head */}
                     <thead>

@@ -1,7 +1,11 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 
 const UpdateData = () => {
+
+    const toy = useLoaderData();
+    const { toy_name, price, available_quantity, details } = toy;
+    console.log(toy);
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -18,23 +22,24 @@ const UpdateData = () => {
         }
         console.log(update)
 
-    //     fetch('http://localhost:5000/product',{
-    //     method: 'POST',
-    //     headers: {
-    //         'content-type':'application/json'
-    //     },
-    //     body:JSON.stringify(added)
-    // })
-    // .then(res => res.json())
-    // .then(data =>{
-    //     console.log(data);
-    // })
+        //     fetch('http://localhost:5000/product',{
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type':'application/json'
+        //     },
+        //     body:JSON.stringify(added)
+        // })
+        // .then(res => res.json())
+        // .then(data =>{
+        //     console.log(data);
+        // })
     }
 
 
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
+                <h1>Toy Name : {toy_name}</h1>
                 <div className="hero-content">
 
                     <Form onSubmit={handleUpdate} className="card flex-shrink-0 w-full shadow-2xl bg-base-100 py-7">

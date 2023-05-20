@@ -44,11 +44,13 @@ const AddToy = () => {
     .then(data =>{
         console.log(data);
         if(data.insertedId){
-            Swal.fire(
-                'Good job!',
-                'You Added A Product',
-                'Successfully'
-              )
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
         }
     })
     }
