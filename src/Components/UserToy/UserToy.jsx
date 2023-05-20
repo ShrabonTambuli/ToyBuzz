@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const UserToy = ({ toy }) => {
+const UserToy = ({ toy}) => {
     const { picture, seller_name, toy_name, sub_category, price, available_quantity, _id } = toy;
 
     const handleDelete = _id => {
-        console.log(_id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

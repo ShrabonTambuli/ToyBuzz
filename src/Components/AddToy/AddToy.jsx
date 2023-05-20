@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -20,7 +20,7 @@ const AddToy = () => {
         const details = form.details.value;
 
         const added = {
-            toy_name : toyName,
+            toy_name: toyName,
             picture: picture,
             price: price,
             rating: rating,
@@ -31,31 +31,30 @@ const AddToy = () => {
             sub_category: subCategory
 
         }
-        console.log(added)
 
-        fetch('http://localhost:5000/product',{
-        method: 'POST',
-        headers: {
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(added)
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log(data);
-        if(data.insertedId){
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        }
-    })
+        fetch('http://localhost:5000/product', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(added)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
-    
+
 
 
     return (

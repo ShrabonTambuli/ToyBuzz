@@ -1,10 +1,11 @@
 import { Form, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateData = () => {
 
     const toy = useLoaderData();
-    const { toy_name, price, available_quantity, details } = toy;
+    const { toy_name, price, available_quantity, details, _id } = toy;
     console.log(toy);
 
     const handleUpdate = event => {
@@ -22,24 +23,34 @@ const UpdateData = () => {
         }
         console.log(update)
 
-        //     fetch('http://localhost:5000/product',{
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type':'application/json'
-        //     },
-        //     body:JSON.stringify(added)
-        // })
-        // .then(res => res.json())
-        // .then(data =>{
-        //     console.log(data);
-        // })
+        fetch(`http://localhost:5000/product/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount>0) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Your update has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
 
     return (
-        <div>
+        <div className="mt-10"> 
+            <h1 className="font-serif font-semibold text-center text-2xl">Toy Name : {toy_name}</h1>
             <div className="hero min-h-screen bg-base-200">
-                <h1>Toy Name : {toy_name}</h1>
+                
                 <div className="hero-content">
 
                     <Form onSubmit={handleUpdate} className="card flex-shrink-0 w-full shadow-2xl bg-base-100 py-7">
@@ -50,6 +61,7 @@ const UpdateData = () => {
                                     <span className="label-text">Price</span>
                                 </label>
                                 <input type="number" placeholder="Price"
+                                defaultValue={price}
                                     name="price" className="input input-bordered pe-80" />
                             </div>
                             <div className="form-control">
@@ -57,6 +69,7 @@ const UpdateData = () => {
                                     <span className="label-text">Available Quantity</span>
                                 </label>
                                 <input type="number" placeholder="Available Quantity"
+                                defaultValue={available_quantity}
                                     name="availableQuantity" className="input input-bordered" />
                             </div>
                             <div className="form-control">
@@ -64,6 +77,7 @@ const UpdateData = () => {
                                     <span className="label-text">Detail Description</span>
                                 </label>
                                 <input type="text" placeholder="Detail Description"
+                                defaultValue={details}
                                     name="details" className="input input-bordered" />
 
                             </div>

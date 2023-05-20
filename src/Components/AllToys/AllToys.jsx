@@ -19,7 +19,7 @@ const AllToys = () => {
 
     return (
         <div>
-            <h1 className="text-center text-3xl font-serif mt-10">Products list: {products.length}</h1>
+            
             <div className=" mt-14 container mx-auto">
                 <div className="overflow-x-auto">
                     <table className="table w-full">
