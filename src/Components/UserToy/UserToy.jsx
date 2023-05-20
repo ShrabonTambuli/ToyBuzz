@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -18,18 +19,20 @@ const UserToy = ({ toy}) => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/my-products/${_id}`,{
+                fetch(`https://toy-buzz-server.vercel.app/my-products/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                         if (data.deleteCount > 0) {
-                              Swal.fire(
+                            Swal.fire(
                                 'Deleted!',
                                 'Your product has been deleted.',
                                 'success'
-                              )
+                            )
+                            //   const remaining = loadToy.filter(tData => tData._id !== _id);
+                            //   setLoadToy(remaining);
                         }
                     })
 

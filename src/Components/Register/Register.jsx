@@ -7,6 +7,9 @@ import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Register"
+    },[])
     const {createUser} = useContext(AuthContext);
 
     useEffect(() => {

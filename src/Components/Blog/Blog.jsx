@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 
 
 const Blog = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Blogs"
+    },[])
     return (
         <div className="grid grid-cols-1 justify-items-center mt-16">
             <div>

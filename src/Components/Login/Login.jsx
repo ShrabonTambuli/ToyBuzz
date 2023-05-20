@@ -6,6 +6,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Login = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Login"
+    },[])
     const {signIn, googleSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -19,11 +22,12 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
         signIn(email, password)
         .then(result =>{
             const user = result.user;
             navigate(from, { replace: true })
+            event.target.reset();
             console.log(user);
         })
         .catch(err => console.log(err))

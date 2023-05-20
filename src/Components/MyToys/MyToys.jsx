@@ -4,10 +4,14 @@ import UserToy from "../UserToy/UserToy";
 
 
 const MyToys = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | My Toys"
+    },[])
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+    // const [loadToy, setLoadToy] = useState(toys);
 
-    const url = `http://localhost:5000/my-products?email=${user?.email}`;
+    const url = `https://toy-buzz-server.vercel.app/my-products?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -33,7 +37,7 @@ const MyToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map(toy =><UserToy key={toy._id} toy={toy}></UserToy>)
+                            toys.map(toy =><UserToy key = {toy._id} setToys = {setToys} toy={toy}></UserToy>)
                         }
                     </tbody>
                 </table>

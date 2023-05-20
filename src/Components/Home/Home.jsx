@@ -1,6 +1,7 @@
 
 
 
+import { useEffect } from "react";
 import Category from "../Category/Category";
 import Feature from "../Feature/Feature";
 import Gallery from "../Gallery-Section/Gallery";
@@ -8,6 +9,9 @@ import Subscrib from "../Subscrib/Subscrib";
 
 
 const Home = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Home"
+    },[])
 
     return (
         <div>

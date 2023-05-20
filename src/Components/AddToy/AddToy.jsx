@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Form } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Add A Toy"
+    },[])
     const { user } = useContext(AuthContext);
 
     const handleAddToy = event => {
@@ -32,7 +35,7 @@ const AddToy = () => {
 
         }
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://toy-buzz-server.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

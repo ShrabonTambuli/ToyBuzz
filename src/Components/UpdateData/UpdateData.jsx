@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { Form, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UpdateData = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | Update"
+    },[])
 
     const toy = useLoaderData();
     const { toy_name, price, available_quantity, details, _id } = toy;
@@ -23,7 +27,7 @@ const UpdateData = () => {
         }
         console.log(update)
 
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://toy-buzz-server.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

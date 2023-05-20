@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 
 const ViewDetails = () => {
+
+    useEffect(()=>{
+        document.title = "ToyBuzz | View Details"
+    },[])
 
     const toy = useLoaderData();
     const {picture, seller_name, toy_name, price, available_quantity, email, rating, details} = toy;

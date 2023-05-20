@@ -56,12 +56,12 @@ const router = createBrowserRouter([
       {
         path: "/view-details/:_id",
         element: <PrivateRoute><ViewDetails/></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
+        loader: ({params}) => fetch(`https://toy-buzz-server.vercel.app/product/${params._id}`)
       },
       {
         path: "/update-data/:_id",
         element: <UpdateData/>,
-        loader: ({params}) => fetch(`http://localhost:5000/my-products/${params._id}`)
+        loader: ({params}) => fetch(`https://toy-buzz-server.vercel.app/my-products/${params._id}`)
       },
     ]
   },

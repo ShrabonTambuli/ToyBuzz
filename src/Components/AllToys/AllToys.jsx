@@ -3,16 +3,20 @@ import ShowAllToys from "./ShowAllToys";
 
 
 const AllToys = () => {
+    useEffect(()=>{
+        document.title = "ToyBuzz | All Toys"
+    },[])
+
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://toy-buzz-server.vercel.app/product')
             .then(res => res.json())
             .then((data) => setProducts(data.slice(0, 20)))
     }, [])
 
     const seeAllToys = () =>{
-        fetch('http://localhost:5000/product')
+        fetch('https://toy-buzz-server.vercel.app/product')
                 .then(res => res.json())
                 .then((data) => setProducts(data))
     }
