@@ -1,9 +1,23 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import UserToy from "../UserToy/UserToy";
 
 
 const MyToys = () => {
+    const { user } = useContext(AuthContext);
+    const [toys, setToys] = useState([]);
+
+    const url = `http://localhost:5000/my-products?email=${user?.email}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [url])
+
     return (
         <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto container mx-auto">
+                <h1>My Toy : {toys.length}</h1>
                 <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -19,11 +33,9 @@ const MyToys = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
+                        {
+                            toys.map(toy =><UserToy key={toy._id} toy={toy}></UserToy>)
+                        }
                     </tbody>
                 </table>
             </div>

@@ -7,10 +7,10 @@ const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
-        .then()
-        .catch(error=>(error))
+            .then()
+            .catch(error => (error))
     }
 
     return (
@@ -23,8 +23,13 @@ const Header = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/all-toys'>All Toys</Link></li>
-                        <li><Link to='/my-toys'>My Toys</Link></li>
-                        <li><Link to='/add-toy'>Add A Toy</Link></li>
+                        {user &&
+                            <>
+                                <li><Link to='/my-toys'>My Toys</Link></li>
+                                <li><Link to='/add-toy'>Add A Toy</Link></li>
+                            </>
+
+                        }
                         <li><Link to='/blogs'>Blogs</Link></li>
                     </ul>
                 </div>
@@ -34,7 +39,7 @@ const Header = () => {
                         } className="w-16 rounded-full border-2 border-warning mx-7" src={user.photoURL} alt="" />
                     }
                     {user ?
-                        <button onClick={handleLogOut} className="btn btn-outline btn-warning">LogOut</button>:
+                        <Link to='/'><button onClick={handleLogOut} className="btn btn-outline btn-warning">LogOut</button></Link> :
                         <Link to='/login' className="btn btn-outline btn-warning ">Login</Link>
 
                     }

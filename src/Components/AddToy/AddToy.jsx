@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Form } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
-    
+    const {user} = useContext(AuthContext);
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -40,6 +43,13 @@ const AddToy = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data);
+        if(data.insertedId){
+            Swal.fire(
+                'Good job!',
+                'You Added A Product',
+                'Successfully'
+              )
+        }
     })
     }
 
@@ -80,6 +90,7 @@ const AddToy = () => {
                                 </label>
                                 <input type="text" placeholder="Seller-email"
                                     name="sellerEmail"
+                                    defaultValue={user?.email}
                                     className="input input-bordered pe-64" />
                             </div>
                             <div className="form-control">

@@ -1,4 +1,4 @@
-import { Form, Link} from "react-router-dom";
+import { Form, Link, useLocation, useNavigate} from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {useContext, useEffect} from 'react';
@@ -7,7 +7,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
     const {signIn, googleSignIn} = useContext(AuthContext);
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
@@ -21,6 +23,7 @@ const Login = () => {
         signIn(email, password)
         .then(result =>{
             const user = result.user;
+            navigate(from, { replace: true })
             console.log(user);
         })
         .catch(err => console.log(err))
