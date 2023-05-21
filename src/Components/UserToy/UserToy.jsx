@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const UserToy = ({ toy}) => {
+const UserToy = ({ toy, toys, setToys}) => {
     const { picture, seller_name, toy_name, sub_category, price, available_quantity, _id } = toy;
 
     const handleDelete = _id => {
@@ -25,14 +25,14 @@ const UserToy = ({ toy}) => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        if (data.deleteCount > 0) {
+                        if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
                                 'Your product has been deleted.',
                                 'success'
                             )
-                            //   const remaining = loadToy.filter(tData => tData._id !== _id);
-                            //   setLoadToy(remaining);
+                              const remaining = toys.filter(tData => tData._id !== _id);
+                              setToys(remaining);
                         }
                     })
 

@@ -42,7 +42,7 @@ const MyToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map(toy => <UserToy key={toy._id} setToys={setToys} toy={toy}></UserToy>)
+                            toys.map(toy => <UserToy key={toy._id} setToys={setToys} toys={toys} toy={toy}></UserToy>)
                         }
                     </tbody>
                 </table>
