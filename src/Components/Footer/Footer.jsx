@@ -5,8 +5,9 @@ const Footer = () => {
     return (
         <div className="mt-10 bg-gray-700 text-white py-10">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 text-center font-serif items-center">
-                <div>
-                    <h1 className="text-5xl font-semibold">ToyBuzz</h1>
+                <div className="inline-flex justify-center items-center">
+                    <img className="w-16" src="/images/head.png" alt="" />
+                    <h1 className="text-3xl font-semibold ms-2">ToyBuzz</h1>
                 </div>
                 <div>
                     <h1 className="text-2xl font-semibold mb-3">Services</h1>

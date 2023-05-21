@@ -16,7 +16,7 @@ const Category = () => {
 
 
     return (
-        <div className="text-center py-6">
+        <div className="text-center py-8">
             <Tabs>
                 <TabList>
                     <button className='btn btn-warning mx-4'>Science Kit</button>
@@ -25,21 +25,21 @@ const Category = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-items-center">
                         {
                             products.map(products => <CategoryProduct key={products._id} products={products} />)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-items-center">
                         {
                             products.map(products => <CategoryProduct key={products._id} products={products} />)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-items-center">
                         {
                             products.map(products => <CategoryProduct key={products._id} products={products} />)
                         }

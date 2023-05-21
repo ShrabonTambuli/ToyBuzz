@@ -17,7 +17,8 @@ const Header = () => {
         <div>
             <div className="navbar bg-base-100 font-serif grid grid-cols-1 lg:grid-cols-3 justify-items-center mt-6">
                 <div className="navbar-start">
-                    <h1 className="normal-case text-2xl font-semibold ms-5">ToyBuzz</h1>
+                    <img className="w-16" src="/images/head.png" alt="" />
+                    <h1 className="normal-case text-3xl font-semibold">ToyBuzz</h1>
                 </div>
                 <div className="navbar-center lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -35,8 +36,13 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {user &&
-                        <img title={user?.displayName
-                        } className="w-16 rounded-full border-2 border-warning mx-7" src={user.photoURL} alt="" />
+                        // <img title={user?.displayName
+                        // } className="w-16 rounded-full border-2 border-warning mx-7 avatar online" src={user.photoURL} alt="" />
+                        <div className="avatar online me-5">
+                            <div className="w-16 rounded-full">
+                                <img title={user?.displayName} src={user.photoURL} />
+                            </div>
+                        </div>
                     }
                     {user ?
                         <Link to='/'><button onClick={handleLogOut} className="btn btn-outline btn-warning">LogOut</button></Link> :

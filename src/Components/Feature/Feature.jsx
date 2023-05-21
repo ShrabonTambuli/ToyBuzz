@@ -9,7 +9,7 @@ const Feature = () => {
       }, []);
 
     return (
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2">
+        <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="mx-auto" data-aos="fade-up">
                 <img className="w-full h-96 rounded-2xl" src="https://www.dontwasteyourmoney.com/wp-content/uploads/2021/10/snaen-chemistry-station-stem-science-kit-110-piece-science-kit.jpg" alt="" />
             </div>
