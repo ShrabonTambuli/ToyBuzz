@@ -4,9 +4,9 @@ import UserToy from "../UserToy/UserToy";
 
 
 const MyToys = () => {
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "ToyBuzz | My Toys"
-    },[])
+    }, [])
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     // const [loadToy, setLoadToy] = useState(toys);
@@ -18,8 +18,13 @@ const MyToys = () => {
             .then(data => setToys(data))
     }, [url])
 
+
     return (
-        <div>
+        <div className="mt-10">
+            <div className="btn-group grid grid-cols-2 w-1/3 mx-auto">
+                <button className="btn btn-outline btn-warning">Ascending</button>
+                <button className="btn btn-outline btn-warning">Descending</button>
+            </div>
             <div className="overflow-x-auto container mx-auto mt-10">
                 <table className="table w-full">
                     {/* head */}
@@ -37,7 +42,7 @@ const MyToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map(toy =><UserToy key = {toy._id} setToys = {setToys} toy={toy}></UserToy>)
+                            toys.map(toy => <UserToy key={toy._id} setToys={setToys} toy={toy}></UserToy>)
                         }
                     </tbody>
                 </table>

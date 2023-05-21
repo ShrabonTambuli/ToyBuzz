@@ -70,7 +70,7 @@ const Login = () => {
                             </div>
                             <p className="mt-4"><Link className="underline" to='/register'>Please Register</Link> ! for new account</p>
                             <hr />
-                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><img className="w-8 rounded-full" src="../../../public/images/google.png" alt="" /> Continue with Google</button>
+                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><img className="w-8 rounded-full" src="/images/google.png" alt="" /> Continue with Google</button>
                         </Form>
                     </div>
                 </div>

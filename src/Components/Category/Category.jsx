@@ -14,6 +14,7 @@ const Category = () => {
             .then((data) => setProducts(data.slice(0, 2)))
     }, [])
 
+
     return (
         <div className="text-center py-6">
             <Tabs>
