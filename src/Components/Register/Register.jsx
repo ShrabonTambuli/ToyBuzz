@@ -1,4 +1,4 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, Navigate } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useContext, useEffect } from 'react';
@@ -7,16 +7,17 @@ import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    useEffect(()=>{
+    const from = location.state?.from?.pathname || '/';
+    useEffect(() => {
         document.title = "ToyBuzz | Register"
-    },[])
-    const {createUser} = useContext(AuthContext);
+    }, [])
+    const { createUser, googleSignIn } = useContext(AuthContext);
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const handleRegister = event =>{
+    const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -32,15 +33,19 @@ const Register = () => {
         // })
         // .catch(err =>console.log(err));
         createUser(email, password)
-        .then ((result)=>{
-            updateProfile(result.user, {
-                displayName: name, photoURL: photo
+            .then((result) => {
+                updateProfile(result.user, {
+                    displayName: name, photoURL: photo
+                })
             })
-        })
-        .catch((error)=>{
-            return(error);
+            .catch((error) => {
+                return (error);
 
-        })
+            })
+    }
+    const handleGoogle = () => {
+        googleSignIn();
+        Navigate(from);
     }
 
     return (
@@ -86,6 +91,7 @@ const Register = () => {
                                 <button className="btn btn-warning">Register</button>
                             </div>
                             <p className="mt-4">Already have an account! <Link className="underline" to='/login'>Please Login</Link></p>
+                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><img className="w-8 rounded-full" src="/images/google.png" alt="" /> Continue with Google</button>
                         </Form>
                     </div>
                 </div>
