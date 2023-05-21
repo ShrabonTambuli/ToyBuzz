@@ -19,6 +19,7 @@ import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
 import UpdateData from './Components/UpdateData/UpdateData.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
